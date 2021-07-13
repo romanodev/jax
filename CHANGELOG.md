@@ -18,6 +18,14 @@ PLEASE REMEMBER TO CHANGE THE '..main' WITH AN ACTUAL TAG in GITHUB LINK.
 
 ## jaxlib 0.1.70 (unreleased)
 
+* Breaking changes:
+  * The host_callback mechnism now uses one thread per local device for
+    making the calls to the Python callbacks. Previous there was a single
+    thread for all devices. This means that the callbacks may now be called
+    interleaved. The callbacks corresponding to one device will still be
+    called in sequence.
+    serialized.
+
 ## jaxlib 0.1.69 (July 9 2021)
 * Fix bugs in TFRT CPU backend that results in incorrect results.
 
